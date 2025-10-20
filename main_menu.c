@@ -1,6 +1,24 @@
 #include <stdio.h>
 
-void printPascalsTriangle(int rows){
+void printTop() {
+    printf("%c", 201); 
+    for (int i = 0; i < 30; i++) printf("%c", 205); 
+    printf("%c\n", 187); 
+}
+
+void printSeparator() {
+    printf("%c", 204); 
+    for (int i = 0; i < 30; i++) printf("%c", 205); 
+    printf("%c\n", 185); 
+}
+
+void printBottom() {
+    printf("%c", 200); 
+    for (int i = 0; i < 30; i++) printf("%c", 205); 
+    printf("%c\n", 188); 
+}
+
+ void printPascalsTriangle(int rows){
     for(int i=0; i<rows; i++){
         int value=1;
         
@@ -14,16 +32,17 @@ void printPascalsTriangle(int rows){
 }
 
  void fibonacci(int n){
-        int first=0, second=1, next;
-        
-        printf("%d%d", first, second);
-        
-        for(int i= 1; i<n; i++){
-            next = first + second;
-            printf("%d", next);
-            first = second;
-            second = next;
-        }
+    int first=0, second=1, next;
+    
+    printf("%d %d ", first, second);
+    
+    for(int i= 2; i<n; i++){
+        next = first + second;
+        printf("%d ", next);
+        first = second;
+        second = next;
+    }
+    printf("\n");
 }
 int main() {
  int choice;
@@ -35,15 +54,17 @@ int main() {
  int rows=0;
  
  while(1){
-     printf("\n+----------------------------+\n");
-     printf("|          MAIN MENU         |\n");
-     printf("+----------------------------+\n");
-     printf("|1. Shape 1                  |\n");
-     printf("|2. Shape 2                  |\n");
-     printf("|3. Fibonacci Sequence       |\n");
-     printf("|4. Pascals Triangle         |\n");
-     printf("|5. Exit                     |\n");
-     printf("|----------------------------|\n");
+        printf("\n");
+        printTop();
+        printf("%c          MAIN MENU           %c\n", 186, 186);
+        printSeparator();
+
+        printf("%c 1. Shape 1                   %c\n", 186, 186);
+        printf("%c 2. Shape 2                   %c\n", 186, 186);
+        printf("%c 3. Fibonacci Sequence        %c\n", 186, 186);
+        printf("%c 4. Pascals Triangle          %c\n", 186, 186);
+        printf("%c 5. Exit                      %c\n", 186, 186);
+        printBottom();
      
      printf("Enter Choice: ");
      scanf("%d", &choice);
@@ -87,12 +108,20 @@ int main() {
     
         case 5:
         printf("Exiting program...\n");
-        return 0;
+        printf("Do you want to try again?\n0=Yes 1=No: ");
+        scanf("%d", &number);
+        if(number==1){
+            printf("Goodbye!\n");
+            return 0;
+        }
+
+
+        break;
         
         default:
         printf("Invalid Choice. Please try again\n");
         break;
- }
+    }
  }
     return 0;
 }
